@@ -17,7 +17,7 @@ static void checkLat(double lat)
 {
   if (lat < -90.0 || lat > 90.0)
   {
-    printf(stderr, "Error: Latitude is not in the specified range [-90.0, 90.0].\n");
+    fprintf(stderr, "Error: Latitude is not in the specified range [-90.0, 90.0].\n");
     exit(EXIT_FAILURE);
   }
 }
@@ -26,7 +26,7 @@ static void checkLon(double lat)
 {
   if (lat < -180.0 || lat > 180.0)
   {
-    printf(stderr, "Error: Longitude is not in the specified range [-180.0, 180.0].\n");
+    fprintf(stderr, "Error: Longitude is not in the specified range [-180.0, 180.0].\n");
     exit(EXIT_FAILURE);
   }
 }
