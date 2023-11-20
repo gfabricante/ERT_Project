@@ -48,4 +48,4 @@ $ JSON data from propagated-solar-wind-1-hour has been written to propagated-sol
  - The produced graph will be saved and sorted by named first, then by local time created
 
 
-![output of python script](https://github.com/gfabricante/ERT_Project/blob/main/Interpolation/outputInterpolation.png)
+![output of python script](https://github.com/gfabricante/ERT_Project/blob/main/Interpolation/outputInterpolation_2023-11-20T15-23-34.png)
