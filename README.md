@@ -5,7 +5,7 @@
 - Our initial benchmark of the original code resulted in an elapsed time of 276.42 seconds
 - We were able to mitigate this time by introducing two things:
   - a header file defining all of the used constants
-  - calculateConstants();
+  - a helper function calculateConstants();
 - The variables selected to be extracted from function_j() are independent from our inputs (f, fp, and fptilde)
   - This allows us to declare and define our variables once, rather than repeatedly for each iteration of our nested loop, resulting in a minimized number of calculations
 - After implementing these changes, the new code had an elapsed time of 205.84 seconds
