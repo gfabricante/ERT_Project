@@ -6,10 +6,11 @@
 
 // gcc -lm test_j.c -o test_j
 
-// global variables to declare only once
+// since these variables appear to be only within the scope of function_j(), declare them as
+// global so we can declare and/or define them elsewhere while preserving their usage in function_j()
 double fptildemin, aX, gX, fpt, alpha, gamma1, sigma_a, sigma_b, exp1arg, sigma, exp2arg;
 
-// calculate all that are independent of input parameters
+// helper function
 void calculateConstants()
 {
     fptildemin = (1.0/2.0/M_PI) * pow((4.0 * b / 5.0), (1.0/4.0));
@@ -33,6 +34,7 @@ double function_j(double f, double fp, double fptilde)
   return alpha * pow(g, 2) * pow((2*M_PI), -4) * pow(f,-5) * exp(exp1arg) * pow(gamma1, exp(exp2arg));
 }
 
+// driver code for demonstration
 int main()
 {
   clock_t startTime = clock(); // start time
