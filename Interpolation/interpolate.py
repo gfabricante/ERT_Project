@@ -29,5 +29,5 @@ plt.ylim(yMin, yMax)
 
 plt.colorbar()
 
-plt.savefig('outputInterpolation.png')
+# plt.savefig('outputInterpolation.png')
 plt.show()
