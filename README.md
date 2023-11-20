@@ -2,13 +2,13 @@
 
 
 ### 1. Code_Optimization
-- Our initial benchmark of the original code had an elapsed time of 276.42 seconds
+- Our initial benchmark of the original code resulted in an elapsed time of 276.42 seconds
 - We were able to mitigate this time by introducing two things:
   - a header file defining all of the used constants
   - calculateConstants();
 - The variables selected to be extracted from function_j() are independent from our inputs (f, fp, and fptilde)
-  - This allows us to declare and define our variables once, rather than repeatedly for each iteration of our nested loop, resulting in a minimized number of calcuations
-- After we made the appropriate changes, the new code had an elapsed time of 205.84 seconds
+  - This allows us to declare and define our variables once, rather than repeatedly for each iteration of our nested loop, resulting in a minimized number of calculations
+- After implmenting these changes, the new code had an elapsed time of 205.84 seconds
 
 ***note:*** There were some conflicting issues with GPROF and Mac OS so as a result, we were forced to take more "archaic" approaches to quantitate our benchmarks. 
 
@@ -26,19 +26,14 @@
 
 
 ### 3. Data_Collection
-- This python script will allow the user to collect data from a NOAA data source by executing the following:
-```
-python3 CollectData.py EXACT_URL
-```
-Example:
-```
-python3 CollectData.py https://services.swpc.noaa.gov/products/geospace/propagated-solar-wind-1-hour.json
-```
+- This python script will allow the user to collect data from a NOAA data source
 - The collected data will then be saved to a file that will be categorized first by source, then by local time collected
 
-Example (continuing):
+Example:
 ```
-JSON data from propagated-solar-wind-1-hour has been written to propagated-solar-wind-1-hour_2023-11-20T11-22-24.txt
+$ python3 CollectData.py https://services.swpc.noaa.gov/products/geospace/propagated-solar-wind-1-hour.json
+
+$ JSON data from propagated-solar-wind-1-hour has been written to propagated-solar-wind-1-hour_2023-11-20T11-22-24.txt
 ```
 
 
@@ -50,4 +45,4 @@ JSON data from propagated-solar-wind-1-hour has been written to propagated-solar
   - This function appeared to be effective for scattered data, while not being overly aggressive or passive
 
 
-![alt text](https://github.com/gfabricante/ERT_Project/blob/main/Interpolation/outputInterpolation.png)
+![output of python script](https://github.com/gfabricante/ERT_Project/blob/main/Interpolation/outputInterpolation.png)
