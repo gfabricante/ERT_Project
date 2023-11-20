@@ -33,7 +33,7 @@ static double bearingFunc(double lat1, double lon1, double lat2, double lon2)
   return temp;
 }
 
-void GIS2Radar(double *range, double *bearing1, double *bearing2, double lat1, double lon1, double lat2, double lon2)
+void GIS2Radar(double *range, double *bearingInit, double *bearingFinal, double lat1, double lon1, double lat2, double lon2)
 {
   double deltaLat, deltaLon, A, B;
 
@@ -48,22 +48,22 @@ void GIS2Radar(double *range, double *bearing1, double *bearing2, double lat1, d
   B = deltaLon / 2.0;
 
   *range = 2 * EARTH_RADIUS * asin(sqrt( (sin(A) * sin(A)) + (sin(B) * sin(B)) * cos(lat1) * cos(lat2) ));
-  *bearing1 = bearingFunc(lat1, lon1, lat2, lon2);
-  *bearing2 = bearingFunc(lat2, lon2, lat1, lon1) - 180;
+  *bearingInit = bearingFunc(lat1, lon1, lat2, lon2);
+  *bearingFinal = bearingFunc(lat2, lon2, lat1, lon1) - 180;
 }
 
-void RtoG (double range, double bearing1, double lat1, double lon1, double *lat2, double *lon2, double *bearing2)
+void RtoG (double range, double bearingInit, double lat1, double lon1, double *lat2, double *lon2, double *bearingFinal)
 {
-  bearing1 = deg2rad(bearing1);
+  bearingInit = deg2rad(bearingInit);
   lat1 = deg2rad(lat1);
   lon1 = deg2rad(lon1);
 
-  *lat2 = rad2deg(asin(sin(lat1) * cos(range/EARTH_RADIUS) + cos(lat1) * sin(range/EARTH_RADIUS) * cos(bearing1)));
-  *lon2 = rad2deg(lon1 + atan2(sin(bearing1) * sin(range/EARTH_RADIUS) * cos(lat1), cos(range/EARTH_RADIUS) - sin(lat1) * sin(deg2rad(*lat2))));
-  *bearing2 = bearingFunc(deg2rad(*lat2), deg2rad(*lon2), lat1, lon1) - 180;
+  *lat2 = rad2deg(asin(sin(lat1) * cos(range/EARTH_RADIUS) + cos(lat1) * sin(range/EARTH_RADIUS) * cos(bearingInit)));
+  *lon2 = rad2deg(lon1 + atan2(sin(bearingInit) * sin(range/EARTH_RADIUS) * cos(lat1), cos(range/EARTH_RADIUS) - sin(lat1) * sin(deg2rad(*lat2))));
+  *bearingFinal = bearingFunc(deg2rad(*lat2), deg2rad(*lon2), lat1, lon1) - 180;
 }
 
-// Driver code
+// Driver code for demonstration
 int main()
 {
   double lat1 = 37;
@@ -71,19 +71,19 @@ int main()
   double lat2 = 18;
   double lon2 = -66;
 
-  double bearing1, bearing2, range;
+  double bearingInit, bearingFinal, range;
 
-  GIS2Radar(&range, &bearing1, &bearing2, lat1, lon1, lat2, lon2);
+  GIS2Radar(&range, &bearingInit, &bearingFinal, lat1, lon1, lat2, lon2);
 
   printf("%f\n", range);
-  printf("%f\n", bearing1);
-  printf("%f\n", bearing2);
+  printf("%f\n", bearingInit);
+  printf("%f\n", bearingFinal);
 
-  RtoG(range, bearing1, lat1, lon1, &lat2, &lon2, &bearing2);
+  RtoG(range, bearingInit, lat1, lon1, &lat2, &lon2, &bearingFinal);
 
   printf("%f\n", lat2);
   printf("%f\n", lon2);
-  printf("%f\n", bearing2);
+  printf("%f\n", bearingFinal);
 
 	return 0;
 }
