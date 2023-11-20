@@ -1,7 +1,6 @@
 #ifndef TEST_J_H_
 #define TEST_J_H_
 
-
 const double a  = 0.0081;
 const double b  = 0.6;
 const double g  = 9.807;
