@@ -10,7 +10,7 @@
   - At first we defined any variable that could be defined before the loop with a helper function. Unfortunately, the issue with that is that it required the user to invoke calculateConstants() before the loop in their source code
   - This meant the user would have to manually call calculateConstants() before calling function_j()
   - Assuming we only want the user to worry about function_j(), we have to redefine variables internally (consequently in the nested loop)
-- After implementing these changes, the new code had an elapsed time of 205.84 seconds
+- After implementing these changes and keeping in mind the constraints, the new code had an elapsed time of 261.81 seconds
 
 ***note:*** There were some conflicting issues with GPROF and Mac OS so as a result, we were forced to take a more "archaic" approach to measure our benchmarks. 
 
