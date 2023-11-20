@@ -3,9 +3,17 @@
 
 const double EARTH_RADIUS = 6371; // in kilometers
 
+ // helper function
 static double deg2rad(double deg_in);
 
+// helper function
 static double rad2deg(double rad_in);
+
+// helper function
+static void checkLat(double lat);
+
+// helper function
+static void checkLon(double lat);
 
 static double bearingFunc(double lat1,
 													double lon1,

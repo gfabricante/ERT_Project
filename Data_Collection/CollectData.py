@@ -13,6 +13,7 @@ try:
     with urllib.request.urlopen(jsonURL) as url:
         data = json.loads(url.read().decode())
 
+        # here we create unique name for file
         today = datetime.datetime.today()
         year = today.year
         month = today.month
@@ -25,7 +26,7 @@ try:
         lastSlashIndex = jsonURL.rfind("/")
 
         # Extract the substring after the last "/" and exclude ".json"
-        subString = jsonURL[lastSlashIndex + 1:-5]
+        subString = jsonURL[lastSlashIndex + 1:-5] # this allows us to specify which source we are reading from
 
         # Specify the output text file path
         outputFilePath = ""+str(subString)+"_"+str(year)+"-"+str(month)+"-"+str(day)+"T"+str(hour)+"-"+str(minute)+"-"+str(second)+".txt"

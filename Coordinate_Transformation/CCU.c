@@ -13,6 +13,25 @@ static double rad2deg(double rad_in)
   return rad_in * (180.0 / M_PI);
 }
 
+static void checkLat(double lat)
+{
+  if (lat < -90.0 || lat > 90.0)
+  {
+    fprintf(stderr, "Error: Latitude is not in the specified range [-90.0, 90.0].\n");
+    exit(EXIT_FAILURE);
+  }
+}
+
+static void checkLon(double lat)
+{
+  if (lat < -180.0 || lat > 180.0)
+  {
+    fprintf(stderr, "Error: Longitude is not in the specified range [-180.0, 180.0].\n");
+    exit(EXIT_FAILURE);
+  }
+}
+
+
 static double bearingFunc(double lat1, double lon1, double lat2, double lon2)
 {
   double deltaLon, Y, X, temp;
@@ -37,6 +56,11 @@ void GIS2Radar(double *range, double *bearingInit, double *bearingFinal, double 
 {
   double deltaLat, deltaLon, A, B;
 
+  checkLat(lat1);
+  checkLat(lat2);
+  checkLon(lon1);
+  checkLon(lon2);
+
   deltaLat = deg2rad(lat2 - lat1);
   deltaLon = deg2rad(lon2 - lon1);
   lat1 = deg2rad(lat1);
@@ -47,13 +71,16 @@ void GIS2Radar(double *range, double *bearingInit, double *bearingFinal, double 
   A = deltaLat / 2.0;
   B = deltaLon / 2.0;
 
-  *range = 2 * EARTH_RADIUS * asin(sqrt( (sin(A) * sin(A)) + (sin(B) * sin(B)) * cos(lat1) * cos(lat2) ));
+  *range = 2 * EARTH_RADIUS * asin(sqrt( (sin(A) * sin(A)) + (sin(B) * sin(B)) * cos(lat1) * cos(lat2) )); // haversines equation
   *bearingInit = bearingFunc(lat1, lon1, lat2, lon2);
   *bearingFinal = bearingFunc(lat2, lon2, lat1, lon1) - 180;
 }
 
 void RtoG (double range, double bearingInit, double lat1, double lon1, double *lat2, double *lon2, double *bearingFinal)
 {
+  checkLat(lat1);
+  checkLon(lon1);
+
   bearingInit = deg2rad(bearingInit);
   lat1 = deg2rad(lat1);
   lon1 = deg2rad(lon1);
@@ -75,15 +102,14 @@ int main()
 
   GIS2Radar(&range, &bearingInit, &bearingFinal, lat1, lon1, lat2, lon2);
 
-  printf("%f\n", range);
-  printf("%f\n", bearingInit);
-  printf("%f\n", bearingFinal);
+  printf("\nThe shortest distance between the two coordinates is %.2fkm\n", range);
+  printf("wih an initial bearing of %.2f degress\n", bearingInit);
+  printf("and final bearing of %.2f degress\n", bearingFinal);
 
-  RtoG(range, bearingInit, lat1, lon1, &lat2, &lon2, &bearingFinal);
+  RtoG(range, bearingInit, lat1, lon1, &lat2, &lon2, &bearingFinal); // note: calculated range and bearingInit from earlier are used here for demonstration purposes
 
-  printf("%f\n", lat2);
-  printf("%f\n", lon2);
-  printf("%f\n", bearingFinal);
+  printf("\nThe calculated coordinates are lat: %.2f and lon: %.2f\n", lat2, lon2);
+  printf("with a final bearing of %.2f degress\n\n", bearingFinal);
 
 	return 0;
 }

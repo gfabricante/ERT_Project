@@ -35,7 +35,7 @@ plt.ylim(yMin, yMax)
 
 plt.colorbar()
 
-# begin labelling
+# here we create unique name for file
 today = datetime.datetime.today()
 year = today.year
 month = today.month
