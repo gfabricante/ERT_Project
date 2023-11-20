@@ -10,7 +10,7 @@
     - any variable that can be defined before the loop was defined with a helper function
 - After implementing these changes, the new code had an elapsed time of 205.84 seconds
 
-***note:*** There were some conflicting issues with GPROF and Mac OS so as a result, we were forced to take a more "archaic" approaches to measure our benchmarks. 
+***note:*** There were some conflicting issues with GPROF and Mac OS so as a result, we were forced to take a more "archaic" approach to measure our benchmarks. 
 
 
 ### 2. Coordinate_Transformation
@@ -18,7 +18,7 @@
 - GIS2Radar() reads in initial & final coordinates and outputs the following:
   - the great-circle distance between the coordinates
   - initial and final bearing
-- RtoG() will read in an intial coordinate, range, & intial bearing and output the following:
+- RtoG() will read in an intial coordinates, range, & intial bearing and output the following:
   - final coordinates
   - final bearing
 
@@ -41,7 +41,7 @@ $ JSON data from propagated-solar-wind-1-hour has been written to propagated-sol
 ### 4. Interpolation
 - Interpolate.py will interpolate given grid points to a specified structured grid
 - We opted for a radially basis function, specifically Inverse Multiquadratic, for our interpolator
-  - Inverse Multiquadratic was selected based on testing and visual observations/comparisons of the other functions
+  - Inverse Multiquadratic was selected based on testing and visual observations & comparisons with other functions
   - This function appeared to be effective for scattered data, while not being overly aggressive or too passive
  - The produced graph will be saved and sorted by named first, then by local time created
 
