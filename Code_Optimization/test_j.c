@@ -40,7 +40,6 @@ int main()
   clock_t startTime = clock(); // start time
 
   double S, f, fp, fptilde;
-
   calculateConstants();
 
   for (f = -5.; f <= 5.; f += 0.01)
