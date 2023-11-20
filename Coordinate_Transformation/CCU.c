@@ -33,7 +33,7 @@ static void checkLon(double lat)
 
 
 // bearing function is meant to have radians inputted since it is used internally
-// and GIS2Radar() & RtoG() already initially convert to radians, makes sense to only do it once
+// and GIS2Radar() & RtoG() already initially convert to radians, makes sense to convert once
 static double bearingFunc(double lat1, double lon1, double lat2, double lon2)
 {
   double deltaLon, Y, X, temp;
