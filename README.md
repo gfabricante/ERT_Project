@@ -4,13 +4,13 @@
 ### 1. Code_Optimization
 - Our initial benchmark of the original code resulted in an elapsed time of 276.42 seconds
 - We were able to mitigate this time by introducing two things:
-  - a header file defining all of the used constants
-  - a helper function calculateConstants();
-- The variables selected to be extracted from function_j() are independent from our inputs (f, fp, and fptilde)
-  - This allows us to declare and define our variables once, rather than repeatedly for each iteration of our nested loop, resulting in a minimized number of calculations
+  - a header file defining all of the constants
+  - reorganizing how we declared and defined our variables:
+    - we first declared our variables as global variables, allowing us to declare the variables once rather than redeclaring it repeatedly in the nested loop
+    - any variable that can be defined before the loop was defined with a helper function
 - After implementing these changes, the new code had an elapsed time of 205.84 seconds
 
-***note:*** There were some conflicting issues with GPROF and Mac OS so as a result, we were forced to take a more "archaic" approaches to quantitate our benchmarks. 
+***note:*** There were some conflicting issues with GPROF and Mac OS so as a result, we were forced to take a more "archaic" approaches to measure our benchmarks. 
 
 
 ### 2. Coordinate_Transformation
