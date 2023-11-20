@@ -10,7 +10,7 @@
     - any variable that can be defined before the loop was defined with a helper function
 - After implementing these changes, the new code had an elapsed time of 205.84 seconds
 
-***note:*** There were some conflicting issues with GPROF and Mac OS so as a result, we were forced to take a more "archaic" approaches to measure our benchmarks. 
+***note:*** There were some conflicting issues with GPROF and Mac OS so as a result, we were forced to take a more "archaic" approache to measure our benchmarks. 
 
 
 ### 2. Coordinate_Transformation
