@@ -7,7 +7,10 @@
   - a header file defining all of the used constants
   - calculateConstants();
 - The variables selected to be extracted from function_j() are independent from our inputs (f, fp, and fptilde)
-- This allows us to declare and define our variables once, rather than repeatedly for each iteration of our nested loop, resulting in a minimized number of calcuations
+  - This allows us to declare and define our variables once, rather than repeatedly for each iteration of our nested loop, resulting in a minimized number of calcuations
+- After we made the appropriate changes, the new code had an elapsed time of 205.84 seconds
+
+***note:*** There were some conflicting issues with GPROF and Mac OS so as a result, we were forced to take more "archaic" approaches to quantitate our benchmarks. 
 
 
 ### 2. Coordinate_Transformation
@@ -19,7 +22,7 @@
   - final coordinates
   - final bearing
 
-***note:*** for the sake of the demonstration, we start with known initial and final coordinates and use GIS2Radar(). We then use the calculated intial bearing & calculated range as our input parameters (along with the known intial coordinate) for RtoG().
+***note:*** For the sake of the demonstration, we start with known initial and final coordinates and use GIS2Radar(). We then use the calculated intial bearing & calculated range as our input parameters (along with the known intial coordinate) for RtoG().
 
 
 ### 3. Data_Collection
