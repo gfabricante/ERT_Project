@@ -10,7 +10,7 @@
   - This allows us to declare and define our variables once, rather than repeatedly for each iteration of our nested loop, resulting in a minimized number of calculations
 - After implementing these changes, the new code had an elapsed time of 205.84 seconds
 
-***note:*** There were some conflicting issues with GPROF and Mac OS so as a result, we were forced to take more "archaic" approaches to quantitate our benchmarks. 
+***note:*** There were some conflicting issues with GPROF and Mac OS so as a result, we were forced to take a more "archaic" approaches to quantitate our benchmarks. 
 
 
 ### 2. Coordinate_Transformation
