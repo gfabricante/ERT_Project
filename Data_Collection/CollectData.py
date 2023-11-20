@@ -17,6 +17,9 @@ try:
         year = today.year
         month = today.month
         day = today.day
+        hour = today.hour
+        minute = today.minute
+        second = today.second
 
         # Find the last occurrence of "/"
         lastSlashIndex = jsonURL.rfind("/")
@@ -25,13 +28,13 @@ try:
         subString = jsonURL[lastSlashIndex + 1:-5]
 
         # Specify the output text file path
-        outputFilePath = ""+str(month)+"-"+str(day)+"-"+str(year)+"-"+str(subString)+".txt"
+        outputFilePath = ""+str(subString)+"_"+str(year)+"-"+str(month)+"-"+str(day)+"T"+str(hour)+"-"+str(minute)+"-"+str(second)+".txt"
 
         # Write JSON data to the text file
         with open(outputFilePath, 'w') as text_file:
             text_file.write(json.dumps(data, indent=4))
 
-        print(f"JSON data from {jsonURL} has been written to {outputFilePath}")
+        print(f"JSON data from {subString} has been written to {outputFilePath}")
 
 except Exception as e:
     print(f"Failed to retrieve data from {jsonURL}. Error: {e}")
