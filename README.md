@@ -42,7 +42,7 @@ $ JSON data from propagated-solar-wind-1-hour has been written to propagated-sol
 - Interpolate.py will interpolate given grid points to a specified structured grid
 - We opted for a radially basis function, specifically Inverse Multiquadratic, for our interpolator
   - Inverse Multiquadratic was selected based on testing and visual observations/comparisons of the other functions
-  - This function appeared to be effective for scattered data, while not being overly aggressive or passive
+  - This function appeared to be effective for scattered data, while not being overly aggressive or too passive
 
 
 ![output of python script](https://github.com/gfabricante/ERT_Project/blob/main/Interpolation/outputInterpolation.png)
