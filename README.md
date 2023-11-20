@@ -7,19 +7,22 @@
   - a header file defining all of the used constants
   - calculateConstants();
 - The variables selected to be extracted from function_j() are independent from our inputs (f, fp, and fptilde)
-- This allows us to declare and define our variables once, rather than repeatedly for each iteration of our nested loop, resulting in a minimized number of calcuations
+  - This allows us to declare and define our variables once, rather than repeatedly for each iteration of our nested loop, resulting in a minimized number of calcuations
+- After we made the appropriate changes, the new code had an elapsed time of 205.84 seconds
+
+***note:*** There were some conflicting issues with GPROF and Mac OS so as a result, we were forced to take more "archaic" approaches to quantitate our benchmarks. 
 
 
 ### 2. Coordinate_Transformation
 - Here we have 2 functions that convert radar coordinates (bearing, range) to GIS coordinates (lat, lon) and vice versa
-- GIS2Radar() will read in initial & final coordinates and output the following:
+- GIS2Radar() reads in initial & final coordinates and outputs the following:
   - the great-circle distance between the coordinates
   - initial and final bearing
 - RtoG() will read in an intial coordinate, range, & intial bearing and output the following:
   - final coordinates
   - final bearing
 
-***Note:*** for the sake of the demonstration, we start with known initial and final coordinates and use GIS2Radar(). We then use the calculated intial bearing & calculated range as our input parameters (along with the known intial coordinate) for RtoG().
+***note:*** For the sake of the demonstration, we start with known initial and final coordinates and use GIS2Radar(). We then use the calculated intial bearing & calculated range as our input parameters (along with the known intial coordinate) for RtoG().
 
 
 ### 3. Data_Collection
@@ -41,4 +44,10 @@ JSON data from propagated-solar-wind-1-hour has been written to propagated-solar
 
 
 ### 4. Interpolation
-blah blah blah
+- This python script will interpolate given grid points to a specified structured grid
+- We opted for a radially basis function, specifically Inverse Multiquadratic, for our interpolator
+  - Inverse Multiquadratic was selected based on testing and visual observations/comparisons of the other functions
+  - This function appeared to be effective for scattered data, while not being overly aggressive or passive
+
+
+![alt text](https://github.com/gfabricante/ERT_Project/blob/main/Interpolation/outputInterpolation.png)
