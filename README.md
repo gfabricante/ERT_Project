@@ -18,7 +18,7 @@
 - GIS2Radar() reads in initial & final coordinates and outputs the following:
   - the great-circle distance between the coordinates
   - initial and final bearing
-- RtoG() will read in an intial coordinate, range, & intial bearing and output the following:
+- RtoG() will read in an intial coordinates, range, & intial bearing and output the following:
   - final coordinates
   - final bearing
 
