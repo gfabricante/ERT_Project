@@ -6,7 +6,7 @@ import datetime
 if len(sys.argv) == 2:
     jsonURL = sys.argv[1]
 else:
-    print("Error: Expecting only 1 command line argument (the exact URL you are trying to access)")
+    print("Error: Expecting only 1 command line argument (the exact URL you are trying to access, see README.md)")
 
 try:
     # Open the URL and read its content
