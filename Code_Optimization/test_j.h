@@ -11,6 +11,7 @@ const double saX = 0.32;
 const double sbC = 0.0783;
 const double sbX = 0.16;
 
+// helper function
 void calculateConstants();
 
 double function_j(double f,

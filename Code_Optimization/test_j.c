@@ -6,8 +6,10 @@
 
 // gcc -lm test_j.c -o test_j
 
+// global variables to declare only once
 double fptildemin, aX, gX, fpt, alpha, gamma1, sigma_a, sigma_b, exp1arg, sigma, exp2arg;
 
+// calculate all that are independent of input parameters
 void calculateConstants()
 {
     fptildemin = (1.0/2.0/M_PI) * pow((4.0 * b / 5.0), (1.0/4.0));
@@ -33,7 +35,7 @@ double function_j(double f, double fp, double fptilde)
 
 int main()
 {
-  clock_t startTime = clock();
+  clock_t startTime = clock(); // start time
 
   double S, f, fp, fptilde;
 
@@ -50,7 +52,7 @@ int main()
     }
   }
 
-  clock_t endTime = clock();
+  clock_t endTime = clock(); // end time
   double elapsedTime = ((double)(endTime - startTime)) / CLOCKS_PER_SEC;
 
   printf("Elapsed time: %f seconds\n", elapsedTime);
