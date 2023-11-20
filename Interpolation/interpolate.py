@@ -17,10 +17,17 @@ xi, yi = np.meshgrid(xi, yi)
 interp = scipy.interpolate.Rbf(x, y, z, function='inverse')
 zi = interp(xi, yi)
 
+plt.title('Point Locations')
+plt.xlabel('longitude')
+plt.ylabel('latitude')
+
 plt.plot(x, y, 'r+')
 plt.pcolor(xi, yi, zi, cmap='winter')
+
 plt.xlim(xMin, xMax)
 plt.ylim(yMin, yMax)
+
 plt.colorbar()
 
+plt.savefig('outputInterpolation.png')
 plt.show()
