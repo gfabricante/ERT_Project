@@ -31,6 +31,7 @@ double function_j(double f, double fp, double fptilde)
 
   exp2arg = -0.5 * pow((f-fp)/(sigma*fp), 2);
 
+  // also, simply return value of equation rather than declaring/defining a variable for that
   return alpha * pow(g, 2) * pow((2*M_PI), -4) * pow(f,-5) * exp(exp1arg) * pow(gamma1, exp(exp2arg));
 }
 
