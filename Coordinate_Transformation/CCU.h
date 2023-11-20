@@ -15,6 +15,7 @@ static void checkLat(double lat);
 // helper function
 static void checkLon(double lat);
 
+// helper function
 static double bearingFunc(double lat1,
 													double lon1,
 													double lat2,
