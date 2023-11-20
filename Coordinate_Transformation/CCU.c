@@ -56,7 +56,7 @@ static double bearingFunc(double lat1, double lon1, double lat2, double lon2)
   return temp;
 }
 
-void GIS2Radar(double *range, double *bearingInit, double *bearingFinal, double lat1, double lon1, double lat2, double lon2)
+void GIS2Radar(double lat1, double lon1, double lat2, double lon2, double *range, double *bearingInit, double *bearingFinal)
 {
   double deltaLat, deltaLon, A, B;
 
@@ -110,7 +110,7 @@ int main()
 
   double bearingInit, bearingFinal, range;
 
-  GIS2Radar(&range, &bearingInit, &bearingFinal, lat1, lon1, lat2, lon2);
+  GIS2Radar(lat1, lon1, lat2, lon2, &range, &bearingInit, &bearingFinal);
 
   printf("\nThe shortest distance between the two coordinates is %.2fkm\n", range);
   printf("wih an initial bearing of %.2f degress\n", bearingInit);

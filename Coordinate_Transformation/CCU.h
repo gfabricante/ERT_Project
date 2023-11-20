@@ -20,13 +20,13 @@ static double bearingFunc(double lat1,
 													double lat2,
 													double lon2);
 
-void GIS2Radar(double *range,
-	            double *bearing1,
-              double *bearing2,
-              double lat1,
-              double lon1,
+void GIS2Radar(double lat1,
+	            double lon1,
               double lat2,
-              double lon2);
+              double lon2,
+              double *range,
+              double *bearing1,
+              double *bearing2);
 
 void RtoG (double range,
           double bearing1,
