@@ -8,7 +8,7 @@
   - calculateConstants();
 - The variables selected to be extracted from function_j() are independent from our inputs (f, fp, and fptilde)
   - This allows us to declare and define our variables once, rather than repeatedly for each iteration of our nested loop, resulting in a minimized number of calculations
-- After implmenting these changes, the new code had an elapsed time of 205.84 seconds
+- After implementing these changes, the new code had an elapsed time of 205.84 seconds
 
 ***note:*** There were some conflicting issues with GPROF and Mac OS so as a result, we were forced to take more "archaic" approaches to quantitate our benchmarks. 
 
@@ -26,7 +26,7 @@
 
 
 ### 3. Data_Collection
-- This python script will allow the user to collect data from a NOAA data source
+- CollectData.py will allow the user to collect data from a NOAA data source
 - The collected data will then be saved to a file that will be categorized first by source, then by local time collected
 
 Example:
@@ -39,7 +39,7 @@ $ JSON data from propagated-solar-wind-1-hour has been written to propagated-sol
 
 
 ### 4. Interpolation
-- This python script will interpolate given grid points to a specified structured grid
+- Interpolate.py will interpolate given grid points to a specified structured grid
 - We opted for a radially basis function, specifically Inverse Multiquadratic, for our interpolator
   - Inverse Multiquadratic was selected based on testing and visual observations/comparisons of the other functions
   - This function appeared to be effective for scattered data, while not being overly aggressive or passive
