@@ -6,10 +6,10 @@
 - We were able to mitigate this time by introducing two things:
   - a header file defining all of the constants
   - declaring our variables as global variables, allowing us to declare the variables once rather than redeclaring it repeatedly in the nested loop
-- An interesting roadblock we ran into:
+- We encountered an interesting roadblock:
   - At first we defined any variable that could be defined before the loop with a helper function.
-  - Unfortunately, the issue with that is that it required the user to invoke calculateConstants() before the loop in their source code
-  - This meant the user would have to manually call calculateConstants() before calling function_j()
+  - Unfortunately, the issue with this is that it required the user to invoke calculateConstants() before the loop in their source code
+    - This meant the user would have to manually call calculateConstants() before calling function_j()
   - Assuming we only want the user to worry about function_j(), we have to define & redefine our variables internally (consequently in the nested loop)
 - After implementing these changes and keeping in mind the constraints, the new code had an elapsed time of 261.86 seconds
 
@@ -21,7 +21,7 @@
 - GIS2Radar() reads in initial & final coordinates and outputs the following:
   - the great-circle distance between the coordinates
   - initial and final bearing
-- RtoG() will read in an intial coordinates, range, & intial bearing and output the following:
+- RtoG() will read in an initial coordinates, range, & intial bearing and output the following:
   - final coordinates
   - final bearing
 
