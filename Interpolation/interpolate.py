@@ -27,8 +27,8 @@ plt.title('Point Locations')
 plt.xlabel('longitude')
 plt.ylabel('latitude')
 
-plt.plot(x, y, 'r+')
-plt.pcolor(xi, yi, zi, cmap='winter')
+plt.plot(x, y, 'r+') # plot original point values
+plt.pcolor(xi, yi, zi, cmap='winter') # plot interpolated values
 
 plt.xlim(xMin, xMax)
 plt.ylim(yMin, yMax)
