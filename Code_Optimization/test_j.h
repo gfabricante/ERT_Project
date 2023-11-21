@@ -12,7 +12,7 @@ const double sbC = 0.0783;
 const double sbX = 0.16;
 
 // helper function
-static inline void calculateConstants(double fptilde); 
+static void calculateConstants(double fptilde); 
 
 double function_j(double f,
                   double fp,
