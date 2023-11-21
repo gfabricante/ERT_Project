@@ -7,7 +7,7 @@
 // gcc -lm test_j.c -o test_j
 
 // since these variables appear to be only within the scope of function_j(), declare them as
-// global so we can declare and/or define them elsewhere while preserving their usage in function_j()
+// global so we can declare them here and then define/redefine them in function_j()
 double fptildemin, aX, gX, fpt, alpha, gamma1, sigma_a, sigma_b, exp1arg, sigma, exp2arg;
 
 double function_j(double f, double fp, double fptilde)
