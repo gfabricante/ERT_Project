@@ -10,24 +10,18 @@
 // global so we can declare and/or define them elsewhere while preserving their usage in function_j()
 double fptildemin, aX, gX, fpt, alpha, gamma1, sigma_a, sigma_b, exp1arg, sigma, exp2arg;
 
-// helper function
-static void calculateConstants(double fptilde)
-{
-    fptildemin = (1.0/2.0/M_PI) * pow((4.0 * b / 5.0), (1.0/4.0));
-    aX  = (log(a)-log(aC))/log(fptildemin);
-    gX  = -log(gC)/log(fptildemin);
-
-    fpt = MAX(fptilde, fptildemin);
-
-    alpha   = aC  * pow(fpt, aX);
-    gamma1   = gC  * pow(fpt, gX);
-    sigma_a = saC * pow(fpt, saX);
-    sigma_b = sbC * pow(fpt, sbX);
-}
-
 double function_j(double f, double fp, double fptilde)
 {
-  calculateConstants(fptilde);
+  fptildemin = (1.0/2.0/M_PI) * pow((4.0 * b / 5.0), (1.0/4.0));
+  aX  = (log(a)-log(aC))/log(fptildemin);
+  gX  = -log(gC)/log(fptildemin);
+
+  fpt = MAX(fptilde, fptildemin);
+
+  alpha   = aC  * pow(fpt, aX);
+  gamma1   = gC  * pow(fpt, gX);
+  sigma_a = saC * pow(fpt, saX);
+  sigma_b = sbC * pow(fpt, sbX);
 
   exp1arg = -1.25 * pow((f/fp),-4);
   sigma   = (f <= fp) * sigma_a + (f > fp) * sigma_b;

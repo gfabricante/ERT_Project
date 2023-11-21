@@ -9,10 +9,7 @@ const double aC = 0.0317;
 const double saC = 0.0547;
 const double saX = 0.32;
 const double sbC = 0.0783;
-const double sbX = 0.16;
-
-// helper function
-static void calculateConstants(double fptilde); 
+const double sbX = 0.16; 
 
 double function_j(double f,
                   double fp,
