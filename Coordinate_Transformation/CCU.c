@@ -15,7 +15,7 @@ static double rad2deg(double rad_in)
 
 static void checkLat(double lat)
 {
-  if (lat < -90.0 || lat > 90.0)
+  if (lat <= -90.0 || lat >= 90.0)
   {
     fprintf(stderr, "Error: Latitude is not in the specified range [-90.0, 90.0].\n");
     exit(EXIT_FAILURE);
@@ -24,7 +24,7 @@ static void checkLat(double lat)
 
 static void checkLon(double lat)
 {
-  if (lat < -180.0 || lat > 180.0)
+  if (lat <= -180.0 || lat >= 180.0)
   {
     fprintf(stderr, "Error: Longitude is not in the specified range [-180.0, 180.0].\n");
     exit(EXIT_FAILURE);
