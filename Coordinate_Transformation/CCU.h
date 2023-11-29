@@ -10,31 +10,31 @@ static double deg2rad(double deg_in);
 static double rad2deg(double rad_in);
 
 // helper function
-static void checkLat(double lat);
+static void checkLat(double lat_in);
 
 // helper function
-static void checkLon(double lat);
+static void checkLon(double lat_in);
 
 // helper function
-static double bearingFunc(double lat1,
-													double lon1,
-													double lat2,
-													double lon2);
+static double bearingFunc(double lat1_in,
+													double lon1_in,
+													double lat2_in,
+													double lon2_in);
 
-void GIS2Radar(double lat1,
-	            double lon1,
-              double lat2,
-              double lon2,
-              double *range,
-              double *bearing1,
-              double *bearing2);
+void GIS2Radar(double lat1_in,
+	            double lon1_in,
+              double lat2_in,
+              double lon2_in,
+              double *range_in,
+              double *bearing1_in,
+              double *bearing2_in);
 
-void RtoG (double range,
-          double bearing1,
-          double lat1,
-          double lon1,
-          double *lat2,
-          double *lon2,
-          double *bearing2);
+void RtoG (double range_in,
+          double bearing1_in,
+          double lat1_in,
+          double lon1_in,
+          double *lat2_in,
+          double *lon2_in,
+          double *bearing2_in);
 
 #endif // CCU_H_
