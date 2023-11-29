@@ -39,12 +39,10 @@ static double bearingFunc(double lat1, double lon1, double lat2, double lon2)
   double deltaLon, Y, X, temp;
 
   deltaLon = lon2 - lon1;
-  lat1 = lat1;
-  lat2 = lat2;
 
   Y = cos(lat2) * sin(deltaLon);
   X = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(deltaLon);
-
+  
   temp = rad2deg(atan2(Y, X));
 
   // make sure it is within [0.0, 360.0]
